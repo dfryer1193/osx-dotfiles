@@ -9,8 +9,10 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 
+bindkey -e
+
 if [[ -e $HOME/.workrc ]] {
-  source .workrc
+  source $HOME/.workrc
 }
 
 alias ls='ls -lvhBFG'
