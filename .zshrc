@@ -15,27 +15,12 @@ if [[ -e $HOME/.workrc ]] {
   source $HOME/.workrc
 }
 
-alias ls='ls -lvhBFG'
-alias tree='tree -C'
-alias plz='sudo $(fc -ln -1)'
-if $(type nvim &>/dev/null) ; then
-  alias vim='nvim'
-  alias vimdiff='nvim -d'
-  alias vimwiki='nvim -c "VimwikiIndex"'
-  alias today='nvim -c "VimwikiMakeDiaryNote"'
-  alias vw='vimwiki'
-  alias vwt='today'
-  alias vwi='nvim -c "VimwikiDiaryIndex"'
-else
-  alias vimwiki='vim -c "VimwikiIndex"'
-  alias vw='vimwiki'
-fi
-alias gti='git'
-
-function intellij() {
-  /Applications/IntelliJ\ IDEA\ CE.app/Contents/MacOS/idea $(realpath $1) &> /dev/null & disown
+if [[ -e $HOME/.zsh_aliases ]] {
+  source $HOME/.zsh_aliases
 }
 
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 # Turn on tab completion
 autoload -Uz compinit && compinit
 # case insensitive path-completion 
